@@ -1,5 +1,7 @@
 
-# yeoman-generator APIの超意訳
+# yeoman-generator APIの意訳
+
+ + 最近Generatorちゃんが可愛いので、APIを勉強がてらコツコツ翻訳してみる。
 
 ## Link's
 
