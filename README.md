@@ -1,5 +1,5 @@
 
-# yeoman-generator
+# yeoman-generator APIの超意訳
 
 ## Link's
 
@@ -8,6 +8,10 @@
  + [GeneratorAPI](http://yeoman.github.io/generator/)
 
  + [Testing-generators](https://github.com/yeoman/generator/wiki/Testing-generators)
+
+ + [WRITING CUSTOM YEOMAN APP GENERATORS](http://yeoman.io/generators.html)
+
+ + [WRITING CUSTOM YEOMAN APP GENERATORSの翻訳](http://qiita.com/sys1yagi/items/da002b32b6663faaa705)
 
 ## Generator API's
 
