@@ -14,7 +14,7 @@
 ### Module: yeoman-generator
 
 | Name |備考 |
-|:-:|:-:|
+|:-|:-|
 | assert      | テスト用のアサートヘルパ(Module: test/assert) |
 | file        | グローバルファイルヘルパ(https://github.com/SBoudrias/file-utils) |
 | generators | Yeoman generators 本体 (yeoman.Baseとyeoman.NamedBaseがデフォルト) |
