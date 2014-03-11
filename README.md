@@ -3,17 +3,9 @@
 
  + 最近Generatorちゃんが可愛いので、APIを勉強がてらコツコツ翻訳してみる。
 
-## Link's
-
- + [yeoman-generator](https://github.com/yeoman/yeoman/wiki/Generators#wiki-frequently-asked-questions)
+## Base Document
 
  + [GeneratorAPI](http://yeoman.github.io/generator/)
-
- + [Testing-generators](https://github.com/yeoman/generator/wiki/Testing-generators)
-
- + [WRITING CUSTOM YEOMAN APP GENERATORS](http://yeoman.io/generators.html)
-
- + [WRITING CUSTOM YEOMAN APP GENERATORSの翻訳](http://qiita.com/sys1yagi/items/da002b32b6663faaa705)
 
 ## Generator API's
 
@@ -48,3 +40,12 @@
  + env/resolver
  + util/common
 
+## Link's
+
+ + [yeoman-generator](https://github.com/yeoman/yeoman/wiki/Generators#wiki-frequently-asked-questions)
+
+ + [Testing-generators](https://github.com/yeoman/generator/wiki/Testing-generators)
+
+ + [WRITING CUSTOM YEOMAN APP GENERATORS](http://yeoman.io/generators.html)
+
+ + [WRITING CUSTOM YEOMAN APP GENERATORSの翻訳](http://qiita.com/sys1yagi/items/da002b32b6663faaa705)

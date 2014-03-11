@@ -41,10 +41,10 @@
 | createDummyGenerator | - | 簡単なダミージェネレータを作成します。 |
 | createGenerator | name(String), dependencies(Array), args(Array or String), options(Object) | 依存関係、引数等を指定して柔軟にジェネレータを作成する |
 | decorate | context(Object), method(String), replacement(function), options(Object) | カスタム機能を持つメソッドを挿入する |
-| gruntfile | options, done | 
-| mockPrompt | generator, answers | 
-| restore |  | 
-| run | Generator |  
-| setUpTestDirectory | dir |  
-| stub | context, method, replacement | 
-| testDirectory | dir, cb | 
+| gruntfile | options(Object), done(function) | ``options``で渡された値を元に、新たなGruntfile.jsを作成し、完了したら``done``を実行する。。 |
+| mockPrompt | generator(yeoman-generator), answers(Object) | ジェネレータに渡された``prompt``の質問へ答えるための機能 ``
+| restore |  | スタブ等の機能を元に戻す。 | 
+| run | Generator(String or function) | ジェネレータ名かコンストラクタを渡すと、その内容でgeneratorを実行します。 |
+| setUpTestDirectory | dir | テスト用ディレクトリをクリーンアップし、ダミーGruntfile.jsを作成します。 |
+| stub | context, method, replacement | 既存の機能をカスタムファンクションで上書きします。 |
+| testDirectory | dir, cb | テストディレクトリをクリーンアップし、その後処理``cb``を呼び出します。|
