@@ -5,13 +5,12 @@
 #### new Base(args, options)
 
 base クラスはすべてのgeneratorへの共通APIを提供します。
+
 オプションとしてarguments, hooks, file, prompt, log, API, などが定義されています。
+
 actions/pixinsのprototype中に見ることができます。
 
 すべてのgeneratorはこのクラスを拡張する必要があります。
-
-| Method | argment | infomation |
-|:--|:--|:--|
 
 
 ##### Parameters:
