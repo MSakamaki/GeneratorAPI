@@ -31,8 +31,8 @@ actions/pixinsのprototype中に見ることができます。
 | description | String | ``-help``オプションで使用する。 |
 | appname | String | アプリケーション名 |
 | config | Storage	| ``.yo-rc``設定 ファイルマネージャ |
-| src | Object | File util instance scoped to sourceRoot |
-| dest | Object | File util instance scoped to destinationRoot |
+| src | Object | file utilインスタンスのスコープをsourceRoot(ソースコード)に設定 |
+| dest | Object | file utilインスタンスのスコープをdestinationRoot(リリース先)に設定 |
 | log | function | Output content through Interface Adapter |
 
 
