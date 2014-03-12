@@ -24,13 +24,13 @@ actions/pixinsのprototype中に見ることができます。
 
 | Name | Type | Description |
 |:--|:--|:--|
-| env | Object | the current Environment being run |
-| args | Object | Provide arguments at initialization |
-| resolved | String | the path to the current generator |
-| generatorName | String	 |
-| description | String | Used in --help output |
-| appname | String | The application name |
-| config | Storage	| .yo-rc config file manager |
+| env | Object | 実行時の環境変数 |
+| args | Object | 初期化時の引数 |
+| resolved | String | generatorのパス |
+| generatorName | String	 |  |
+| description | String | ``-help``オプションで使用する。 |
+| appname | String | アプリケーション名 |
+| config | Storage	| ``.yo-rc``設定 ファイルマネージャ |
 | src | Object | File util instance scoped to sourceRoot |
 | dest | Object | File util instance scoped to destinationRoot |
 | log | function | Output content through Interface Adapter |
