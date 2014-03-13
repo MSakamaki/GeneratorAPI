@@ -1,13 +1,9 @@
 
 # yeoman-generator APIの意訳
 
- + 最近Generatorちゃんが可愛いので、APIを勉強がてらコツコツ翻訳してみる。
+ + Generatorメモ兼、翻訳
 
 ## Base Document
-
- + [GeneratorAPI](http://yeoman.github.io/generator/)
-
-## Generator API's
 
 ### [Modules](https://github.com/MSakamaki/GeneratorAPI/blob/master/Module.md)
 
@@ -41,6 +37,12 @@
  + util/common
 
 ## Link's
+
+ + [GeneratorAPI](http://yeoman.github.io/generator/)
+
+ + **必見！**[YEOMAN TEAM BLOG](http://yeoman.io/blog/)
+
+ + [GithubSource](https://github.com/yeoman/generator)
 
  + [yeoman-generator](https://github.com/yeoman/yeoman/wiki/Generators#wiki-frequently-asked-questions)
 
