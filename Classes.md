@@ -52,6 +52,8 @@ actions/pixinsのprototype中に見ることができます。
 
 ##### argument(name, config)
 
+クラスに引数を追加できるようにする。
+
     Adds an argument to the class and creates an attribute getter for it.
 
     Arguments are different from options in several aspects. The first one is how they are parsed from the command line, arguments are retrieved from position.
