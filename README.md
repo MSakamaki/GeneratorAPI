@@ -1,5 +1,5 @@
 
-# yeoman-generator APIのメモとかまとめ的なサイト
+# yeoman-generator APIのメモとかまとめ
 
 ## Link's
 
