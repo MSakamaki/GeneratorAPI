@@ -327,7 +327,7 @@ generatorの設定の保持/取得は以下の機能を使います。
 
 以下のように記述することで、generator生成時に設定されたcoffee scriptのフラグが``.yo-rc``ファイルに保存されるようになります。
 
-``javascript
+```javascript
 
 this.prompt(prompts, function (props) {
   var haslib = function (lib) { return props.bower.indexOf(lib) !== -1; };
@@ -346,7 +346,7 @@ this.prompt(prompts, function (props) {
 
   done();
 }.bind(this));
-``
+```
 
 合わせて、``somefile.js``をコピーして``somefile.coffee``を作成します。
 
