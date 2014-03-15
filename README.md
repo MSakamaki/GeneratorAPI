@@ -2,12 +2,6 @@
 # yeoman-generator ハンズオン
 
  + 目次
-	1. generatorの基本
-		+ generatorの仕組み
-		+ generatorのできること
-			+ テンプレートの作成 
-			+ テンプレートに沿う機能の追加とか
-			+ ジェネレータの品質保持
 	1. generator-generator
 		+ 雛形を作る
 		+ yo コマンドに認識させる（パスを通す）。
@@ -22,18 +16,6 @@
 		+ subgeneratorを作ってみる
 		+ 設定を引き継いでsubgeneratorを動かしてみる。
 
-
-## generatorの基本
-
-### generatorの仕組み
-
-### generatorのできること
-
-#### テンプレート作成
-
-#### テンプレートに沿う機能の追加とか
-
-#### ジェネレータの品質保持
 
 ## generator-generator
 
