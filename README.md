@@ -190,8 +190,6 @@ var prompts = [{
       this.include.gulp = hasci('gulp');
       this.include.grunt = hasci('grunt');
 
-      this.config.set('coffeescript', this.coffee);
-
       done();
     }.bind(this));
 ```
