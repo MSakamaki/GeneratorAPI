@@ -232,7 +232,7 @@ bower、grunt/gulpを選択肢に合わせてインストールするように�
 
 #### grunt/gulp
 
-CIツールに合わせ、grunt/gulpを選択出来るようにします。
+CIツールに合わせ、``app/templates/_package.json``を編集してgrunt/gulpを選択出来るようにします。
 
  + 編集前
 
