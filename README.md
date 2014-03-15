@@ -329,23 +329,23 @@ generatorの設定の保持/取得は以下の機能を使います。
 
 ``javascript
 
-    this.prompt(prompts, function (props) {
-      var haslib = function (lib) { return props.bower.indexOf(lib) !== -1; };
-      var hasci = function (lib) { return props.cimodule.indexOf(lib) !== -1; };
-      this.include = this.include || {};
+this.prompt(prompts, function (props) {
+  var haslib = function (lib) { return props.bower.indexOf(lib) !== -1; };
+  var hasci = function (lib) { return props.cimodule.indexOf(lib) !== -1; };
+  this.include = this.include || {};
 
-      this.coffee = props.coffee;
-      this.yourname = props.yourname;
-      this.include.angular = haslib('angularjs');
-      this.include.bootstrap = haslib('bootstrap');
+  this.coffee = props.coffee;
+  this.yourname = props.yourname;
+  this.include.angular = haslib('angularjs');
+  this.include.bootstrap = haslib('bootstrap');
 
-      this.include.gulp = hasci('gulp');
-      this.include.grunt = hasci('grunt');
+  this.include.gulp = hasci('gulp');
+  this.include.grunt = hasci('grunt');
 
-      this.config.set('coffeescript', this.coffee); // <-- ここに追加！！
+  this.config.set('coffeescript', this.coffee); // <-- ここに追加！！
 
-      done();
-    }.bind(this));
+  done();
+}.bind(this));
 ``
 
 合わせて、``somefile.js``をコピーして``somefile.coffee``を作成します。
@@ -357,7 +357,9 @@ generatorテンプレート作成時に保存された``.yo-rc``の値は``this.
 generatorテンプレート作成時に選ばれたcoffeescriptの値により、somefile.jsとsomefile.coffeeのどちらかをコピーするという処理を追加します。
 
 ```javascript
+
 'use strict';
+
 var util = require('util');
 var yeoman = require('yeoman-generator');
 
