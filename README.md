@@ -79,7 +79,7 @@ yo generator
 
 そのため、パスが通っている場所に先程作成した```generator-sample```のパスを通せば認識されます。
 
-Mac,Linuxの場合はシンボリックリンク ``ln -s [generator-sampleフォルダ絶対パス] generator-sample``でシンボリックリンクを作成します。
+Mac,Linuxの場合はシンボリックリンク ``ln -s [generator-sampleフォルダ絶対パス] generator-sample``で``node_modules``へシンボリックリンクを作成します。
 
 Windowsの場合はgenerator-sampleフォルダにパスを通すか、パスが通っているフォルダにgenerator-をコピーして下さい。
 
