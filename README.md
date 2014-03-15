@@ -50,10 +50,10 @@ npm i -g generator-generator
 まずは、generatorフォルダを作ります。
 
 ```sh
-mkdir generator-XXXX
+mkdir generator-sample
 ```
 
-``XXXX``の部分は好きな名前で構いません、そこがジェネレータの名前になります。
+``sample``の部分は好きな名前で構いません、ジェネレータの名前になります。
 
 以下のコマンドでgeneratorの雛形が作成されます。
 
@@ -65,13 +65,13 @@ yo generator
 
 2番目にジェネレータの名前を聞かれます。
 
-デフォルトでは``generator-XXXX``の``XXXX``部分が名前になります。
+デフォルトでは``generator-sample``の``sample``部分が名前になります。
 
 すると、以下のようなフォルダが作成されます。
 
 ```sh
 
-./generator-XXXX
+./generator-sample
 ├── README.md
 ├── app
 │   ├── index.js
@@ -95,11 +95,11 @@ yo generator
  1. ``generator-``で開始されるフォルダを探す
  1. ``generator-``フォルダ内のapp/index.jsを実行する。
 
-そのため、パスが通っている場所に先程作成した```generator-XXXX```のパスを通せば認識されます。
+そのため、パスが通っている場所に先程作成した```generator-sample```のパスを通せば認識されます。
 
-Mac,Linuxの場合はシンボリックリンク ``ln -s [generator-xxxxフォルダ絶対パス] generator-XXXX``でシンボリックリンクを作成します。
+Mac,Linuxの場合はシンボリックリンク ``ln -s [generator-sampleフォルダ絶対パス] generator-sample``でシンボリックリンクを作成します。
 
-Windowsの場合はgenerator-XXXXフォルダにパスを通すか、パスが通っているフォルダにgenerator-をコピーして下さい。
+Windowsの場合はgenerator-sampleフォルダにパスを通すか、パスが通っているフォルダにgenerator-をコピーして下さい。
 
 ## yo my generator
 
@@ -110,7 +110,7 @@ Windowsの場合はgenerator-XXXXフォルダにパスを通すか、パスが�
 新たにフォルダを作成し、そのフォルダの中で以下のコマンドを実行して下さい。
 
 ```sh
-yo XXXX
+yo sample
 ```
 
 パスが通って入れば、問題なくジェネレータが起動します。
@@ -301,7 +301,7 @@ generatorにはsubgeneratorと言う考えがあります。
 作成方法は``generator-generator``を使う場合、以下のコマンドを実行します。
 
 ```sh
-yo generator:subgenerator suggen
+yo generator:subgenerator subgen
 ```
 
 サブジェネレータ名（今回は仮にsubg）を決めると、以下のようなフォルダ構成になります。
@@ -318,7 +318,7 @@ yo generator:subgenerator suggen
 │       └── jshintrc
 ├── node_modules
 ├── package.json
-├── suggen
+├── subgen
 │   ├── index.js
 │   └── templates
 │       └── somefile.js
@@ -327,21 +327,84 @@ yo generator:subgenerator suggen
     └── test-load.js
 ```
 
+作成されたのち、もう一度``yo generator``を実行、その後``yo generator:subgen``と実行してみましょう。
+
+フォルダに``somefile.js``がコピーされれば成功です。
+
 ### 設定を引き継いでsubgeneratorを動かしてみる
 
 今回、最初の選択肢にcoffe scriptの選択肢を入れました。
 
-その最初の設定に紐突きsubgeneratorを起動させるため、
-
-generatorの設定を保持、取得する機能を導入してみましょう。
+その最初の設定に紐subgeneratorを起動させるため、generatorの設定を保持、取得する機能を導入してみましょう。
 
 generatorの設定の保持/取得は以下の機能を使います。
 
  + [generatorAPI/Storage](http://yeoman.github.io/generator/Storage.html)
 
+設定を保存する場合は``this.config.set();``を使用します。
 
-``sh
+以下のように記述することで、generator生成時に設定されたcoffee scriptのフラグが``.yo-rc``ファイルに保存されるようになります。
 
+``javascript
+
+    this.prompt(prompts, function (props) {
+      var haslib = function (lib) { return props.bower.indexOf(lib) !== -1; };
+      var hasci = function (lib) { return props.cimodule.indexOf(lib) !== -1; };
+      this.include = this.include || {};
+
+      this.coffee = props.coffee;
+      this.yourname = props.yourname;
+      this.include.angular = haslib('angularjs');
+      this.include.bootstrap = haslib('bootstrap');
+
+      this.include.gulp = hasci('gulp');
+      this.include.grunt = hasci('grunt');
+
+      this.config.set('coffeescript', this.coffee); // <-- ここに追加！！
+
+      done();
+    }.bind(this));
+``
+
+合わせて、``somefile.js``をコピーして``somefile.coffee``を作成します。
+
+generatorテンプレート作成時に保存された``.yo-rc``の値は``this.config.get()``で取得することが出来ます。
+
+``subgen/index.js``の内容を以下の用に編集します。
+
+generatorテンプレート作成時に選ばれたcoffeescriptの値により、somefile.jsとsomefile.coffeeのどちらかをコピーするという処理を追加します。
+
+```javascript
+'use strict';
+var util = require('util');
+var yeoman = require('yeoman-generator');
+
+var SampleGenerator = yeoman.generators.NamedBase.extend({
+  init: function () {
+    console.log('You called the sample subgenerator with the argument ' + this.name + '.');
+    this.coffee = this.config.get('coffeescript');
+    console.log('this.coffee',this.coffee);
+  },
+
+  files: function () {
+
+  	console.log('this.name',this.name);
+
+  	var fileext = (this.coffee?".coffee":".js");
+  	var copyScript =  this.name + fileext;
+
+	this.copy('somefile.' + fileext, copyScript);
+  }
+});
+
+module.exports = SampleGenerator;
+```
+
+また最初からgeneratorを実行すると、最初に選択された設定に紐づき、ジェネレータが生成されるようになります。
+
+以上で今回のハンズオンの内容は終了です、以下に参考ドキュメントなどをおいてますので
+
+これから色々いじってみましょう。
 
 ## sub content
 
