@@ -309,7 +309,7 @@ yo generator:subgenerator subgen
     └── test-load.js
 ```
 
-作成されたのち、もう一度``yo generator``を実行、その後``yo generator:subgen``と実行してみましょう。
+作成されたのち、新しいフォルダもしくは一度もう一度``yo sample``を実行、その後``yo sample:subgen hoge``と実行してみましょう。
 
 フォルダに``somefile.js``がコピーされれば成功です。
 
