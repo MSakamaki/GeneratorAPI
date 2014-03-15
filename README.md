@@ -375,7 +375,7 @@ var SampleGenerator = yeoman.generators.NamedBase.extend({
   	var fileext = (this.coffee?".coffee":".js");
   	var copyScript =  this.name + fileext;
 
-	this.copy('somefile.' + fileext, copyScript);
+	this.copy('somefile' + fileext, copyScript);
   }
 });
 
