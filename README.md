@@ -74,14 +74,16 @@ yo generator
  yoコマンドは以下のステップでgeneratorを認識しています。
 
  1. パスが通っているフォルダを総なめする。
- 1. ``generator-``で開始されるフォルダを探す
+ 1. ``node_modules``内の``generator-``で開始されるフォルダを探す
  1. ``generator-``フォルダ内のapp/index.jsを実行する。
 
-そのため、パスが通っている場所に先程作成した```generator-sample```のパスを通せば認識されます。
+そのため、パスが通っている場所に、先程作成した```generator-sample```のパスを通せば認識されます。
 
 Mac,Linuxの場合はシンボリックリンク ``ln -s [generator-sampleフォルダ絶対パス] generator-sample``で``node_modules``へシンボリックリンクを作成します。
 
 Windowsの場合はgenerator-sampleフォルダにパスを通すか、パスが通っているフォルダにgenerator-をコピーして下さい。
+
+Windowsの``node_modules``のパスは``C:\Users\ユーザー名\AppData\Roaming\npm\node_modules``です。
 
 ## yo my generator
 
@@ -97,7 +99,7 @@ yo sample
 
 パスが通って入れば、問題なくジェネレータが起動します。
 
-適当に質問に答え、実行が完了すると以下のようなフォルダで新規にプロジェクトが作成されます。
+適当に質問に答え、実行が完了すると以下のような新規プロジェクトが作成されます。
 
 ```sh
 .
@@ -125,9 +127,7 @@ var prompts = [{
 
 ここに選択肢を追加してみましょう。
 
-APIは[ここのサイト](https://github.com/SBoudrias/Inquirer.js#prompts-type)を参考にしてください。
-
-次の例は以下のような質問を追加しています。
+どのような質問が作成可能か知りたい場合は[ここのサイト](https://github.com/SBoudrias/Inquirer.js#prompts-type)を参考にしてください。
 
 ```sh
 
@@ -194,7 +194,7 @@ var prompts = [{
     }.bind(this));
 ```
 
-### 選択肢の結果でもジュールをインストールする
+### 選択肢の結果でモジュールをインストールする
 
 選択肢で選んだ回答にあわせ、生成されるテンプレートを切り替えなければいけません。
 
@@ -258,9 +258,9 @@ CIツールに合わせ、``app/templates/_package.json``を編集してgrunt/gu
 
 ここまで編集したら、新しいフォルダを作るか、前のテンプレートを削除するかして、もう一度ジェネレートしてみましょう。
 
-選択肢により、bowerやgrunt/gulpがインストールされれば成功です。
+選択肢の内容に合わせ、javascriptライブラリやgrunt/gulpがインストールされれば成功です。
 
-## yo my gsubgenerator
+## yo my subgenerator
 
 ### subgeneratorを作ってみる
 
@@ -270,7 +270,7 @@ generatorにはsubgeneratorと言う考えがあります。
 
  + [generator-angular](https://github.com/yeoman/generator-angular)
 
-このgeneratorは、テンプレート生成後に、同じフォルダ内で ``yo angular:route``のように実行すると、
+このgeneratorは、テンプレート生成後に、同じフォルダ内で ``yo angular:route hoge``のように実行すると、
 
 ``route``フォルダ内のindex.jsが実行されます。
 
@@ -278,13 +278,13 @@ generatorにはsubgeneratorと言う考えがあります。
 
 このように、プロジェクト生成後もルールに則った規則である程度の機能追加、改変を行うようにすることができます。
 
-作成方法は``generator-generator``を使う場合、以下のコマンドを実行します。
+作成方法は``generator-generator``で、以下のコマンドを実行します。
 
 ```sh
 yo generator:subgenerator subgen
 ```
 
-サブジェネレータ名（今回は仮にsubg）を決めると、以下のようなフォルダ構成になります。
+サブジェネレータ名（今回は仮にsubgen）を決めると、以下のようなフォルダ構成になります。
 
 ```sh
 .
@@ -313,7 +313,7 @@ yo generator:subgenerator subgen
 
 ### 設定を引き継いでsubgeneratorを動かしてみる
 
-今回、最初の選択肢にcoffe scriptの選択肢を入れました。
+今回、最初の選択肢にcoffee scriptの選択肢を入れました。
 
 その最初の設定に紐subgeneratorを起動させるため、generatorの設定を保持、取得する機能を導入してみましょう。
 
@@ -352,7 +352,7 @@ generatorテンプレート作成時に保存された``.yo-rc``の値は``this.
 
 ``subgen/index.js``の内容を以下の用に編集します。
 
-generatorテンプレート作成時に選ばれたcoffeescriptの値により、somefile.jsとsomefile.coffeeのどちらかをコピーするという処理を追加します。
+generatorテンプレート作成時に選ばれたcoffee scriptの値により、``somefile.js``と``somefile.coffee``のどちらかをコピーするという処理を追加します。
 
 ```javascript
 
@@ -388,7 +388,7 @@ module.exports = SampleGenerator;
 
 これから色々いじってみましょう。
 
-## sub content
+## 参考文献
 
 ### Document
 
